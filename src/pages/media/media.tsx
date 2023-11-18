@@ -1,6 +1,3 @@
-import Footer from '../../components/footer/footer';
-import Header from '../../components/header/header';
-
 function Media(): JSX.Element {
   return (
     <>
@@ -13,7 +10,6 @@ function Media(): JSX.Element {
             />
           </div>
           <h1 className="visually-hidden">WTW</h1>
-          <Header />
           <div className="film-card__wrap">
             <div className="film-card__desc">
               <h2 className="film-card__title">The Grand Budapest Hotel</h2>
@@ -162,7 +158,6 @@ function Media(): JSX.Element {
             </article>
           </div>
         </section>
-        <Footer />
       </div>
     </>
 

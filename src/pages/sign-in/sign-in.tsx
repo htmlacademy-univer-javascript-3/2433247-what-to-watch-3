@@ -1,10 +1,6 @@
-import Footer from '../../components/footer/footer';
-import Header from '../../components/header/header';
-
 function SignIn(): JSX.Element {
   return (
     <div className="user-page">
-      <Header />
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form">
           <div className="sign-in__fields">
@@ -46,7 +42,6 @@ function SignIn(): JSX.Element {
           </div>
         </form>
       </div>
-      <Footer />
     </div>
   );
 }
