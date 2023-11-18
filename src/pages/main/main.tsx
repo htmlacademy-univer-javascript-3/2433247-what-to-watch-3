@@ -1,5 +1,3 @@
-import Footer from '../../components/footer/footer';
-import Header from '../../components/header/header';
 import MediaCard from '../../components/media-card/media-card';
 import MediaPromo from '../../components/media-promo/media-promo';
 import MediaInfo from '../../types/media-info';
@@ -15,7 +13,6 @@ function Main({ mediaList }: { mediaList: ReadonlyArray<MediaInfo> }): JSX.Eleme
           />
         </div>
         <h1 className="visually-hidden">WTW</h1>
-        <Header />
         <div className="film-card__wrap">
           <MediaPromo media={mediaList[0]} />
         </div>
@@ -93,7 +90,6 @@ function Main({ mediaList }: { mediaList: ReadonlyArray<MediaInfo> }): JSX.Eleme
             </button>
           </div>
         </section>
-        <Footer />
       </div>
     </>
   );
