@@ -1,4 +1,4 @@
-import Router from '../router/router';
+import Router from '../../router/router';
 
 export const App: React.FunctionComponent = () => <Router />;
 

@@ -1,7 +1,14 @@
-function Player(): JSX.Element {
+import { useParams } from 'react-router-dom';
+import MediaInfo from '../../types/media-info';
+import MediaList from '../../types/media-list';
+
+function Player({ list }: MediaList): JSX.Element {
+  const { id } = useParams();
+  const media = list.find((item) => item.id === id) as MediaInfo;
+
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="img/player-poster.jpg" />
+      <video src={media.mediaLink} className="player__video" poster={media.preview} />
       <button type="button" className="player__exit">
         Exit
       </button>
