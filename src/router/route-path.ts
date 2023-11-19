@@ -2,10 +2,10 @@ enum RoutePath {
     Main = '/',
     Login = '/login',
     MyList = '/mylist',
-    Films = '/films',
+    // Films = '/films',
     Film = '/films/:id',
     FilmReview = '/films/:id/review',
-    Player = '/player/:id',
+    Player = 'films/:id/player',
     NotFound = '*',
 }
 

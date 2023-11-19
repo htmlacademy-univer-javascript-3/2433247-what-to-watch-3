@@ -1,54 +1,43 @@
-function AddReview(): JSX.Element {
+import { Link, useParams } from 'react-router-dom';
+import MediaInfo from '../../types/media-info';
+import MediaList from '../../types/media-list';
+import React from 'react';
+
+function AddReview({ list }: MediaList): JSX.Element {
+  const { id } = useParams();
+  const media = list.find((item) => item.id === id) as MediaInfo;
+
+  const [formData, setFormData] = React.useState({
+    title: media.title,
+  });
+
+  const handleFieldChange = (evt: { target: { name: string; value: string } }) => {
+    const {name, value} = evt.target;
+    setFormData({...formData, [name]: value});
+  };
+
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img
-            src="img/bg-the-grand-budapest-hotel.jpg"
-            alt="The Grand Budapest Hotel"
-          />
+          <img src={media.preview} alt={media.title} />
         </div>
-        <h1 className="visually-hidden">WTW</h1>
         <header className="page-header">
-          <div className="logo">
-            <a href="main.html" className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">
-                  The Grand Budapest Hotel
-                </a>
+                <Link to={`/films/${media.id}`} className="breadcrumbs__link">
+                  {media.title}
+                </Link>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>
               </li>
             </ul>
           </nav>
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img
-                  src="img/avatar.jpg"
-                  alt="User avatar"
-                  width={63}
-                  height={63}
-                />
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
-            </li>
-          </ul>
         </header>
         <div className="film-card__poster film-card__poster--small">
-          <img
-            src="img/the-grand-budapest-hotel-poster.jpg"
-            alt="The Grand Budapest Hotel poster"
+          <img src={media.poster} alt={media.title}
             width="218"
             height="327"
           />
@@ -163,6 +152,7 @@ function AddReview(): JSX.Element {
           </div>
           <div className="add-review__text">
             <textarea
+              onChange={handleFieldChange} value={formData.title}
               className="add-review__textarea"
               name="review-text"
               id="review-text"
@@ -170,7 +160,7 @@ function AddReview(): JSX.Element {
               defaultValue={''}
             />
             <div className="add-review__submit">
-              <button className="add-review__btn" type="submit">
+              <button className="add-review__btn">
                 Post
               </button>
             </div>

@@ -1,4 +1,4 @@
-import MediaCard from '../../components/media-card/media-card';
+import MediaCatalog from '../../components/media-catalog/media-catalog';
 import MediaPromo from '../../components/media-promo/media-promo';
 import MediaInfo from '../../types/media-info';
 
@@ -72,18 +72,7 @@ function Main({ mediaList }: { mediaList: ReadonlyArray<MediaInfo> }): JSX.Eleme
               </a>
             </li>
           </ul>
-          <div className="catalog__films-list">
-            {
-              mediaList
-                .slice(1)
-                .map((media) => (
-                  <MediaCard
-                    key={media.name}
-                    media={media}
-                  />
-                ))
-            }
-          </div>
+          <MediaCatalog list={mediaList} />
           <div className="catalog__more">
             <button className="catalog__button" type="button">
               Show more

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import MediaInfo from '../../types/media-info';
 
 function MediaPromo({ media }: {
@@ -5,19 +6,21 @@ function MediaPromo({ media }: {
 }): JSX.Element {
   return (
     <div className="film-card__info">
-      <div className="film-card__poster">
-        <img
-          src={media.poster}
-          alt={media.name}
-          width={218}
-          height={327}
-        />
-      </div>
+      <Link to={`/films/${media.id}`}>
+        <div className="film-card__poster">
+          <img
+            src={media.poster}
+            alt={media.title}
+            width={218}
+            height={327}
+          />
+        </div>
+      </Link>
       <div className="film-card__desc">
-        <h2 className="film-card__title">{media.name}</h2>
+        <h2 className="film-card__title">{media.title}</h2>
         <p className="film-card__meta">
           <span className="film-card__genre">{media.genre || '$genre'}</span>
-          <span className="film-card__year">{media.date || '$date'}</span>
+          <span className="film-card__year">{media.releaseDate || '$date'}</span>
         </p>
         <div className="film-card__buttons">
           <button className="btn btn--play film-card__button" type="button">
